@@ -1,4 +1,5 @@
-TODO: Update contents later
+TODO: Project currently being worked on. Queries are done, but README still needs to be done
+to Explain the results and answer the following questions
 
 
 Questions to Answer
