@@ -11,7 +11,7 @@ Here are the SQL queries used for this project: [SL_Project_3_SQL](https://githu
 # Background
 
 As someone looking to become a Data Analyst, I needed a project that could showcase some of my SQL knowledge and skills. On top of that, I also wanted to know
-more about what it takes to become one. As such, I created this project to serve both purposes. I used detailed data that I found online which included things like job titles, skills, and other information I could use for this project.
+more about what it takes to become one. As such, I created this project to serve both purposes. I used detailed data that I found online from 2023 which included things like job titles, skills, and other information I could use for this project.
 
 ## 5 Questions I set out to answer through my SQL queries
 
@@ -29,6 +29,15 @@ more about what it takes to become one. As such, I created this project to serve
 * **Git & GitHub**: Used to share my SQL project, queries, and analysis. It is also what I used to write this README file
 
 # Analysis
+
+In order to answer the 5 questions that I began this project with, I created 5 queries on different files.
+
+## 1. Top Paying Data Analyst Jobs
+
+In order to find the highest paying remote data analyst jobs, I created the following query:
+
+
+
 
 
 
