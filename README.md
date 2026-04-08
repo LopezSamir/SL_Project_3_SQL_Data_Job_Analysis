@@ -221,10 +221,19 @@ First I selected that I wanted the skill_id and skills columns from the skills_d
 * **Business Intelligence and Visualization Tools**: Tableau and Looker, with demand counts of 230 and 49 respectively, and average salaries around $99,288 and $103,795, highlight the critical role of data visualization and business intelligence in deriving actionable insights from data.
 * **Database Technologies**: The demand for skills in traditional and NoSQL databases (Oracle, SQL Server, NoSQL) with average salaries ranging from $97,786 to $104,534, reflects the enduring need for data storage, retrieval, and management expertise.
 
+# Conclusions
 
+## Insights
 
+1. **Top-Paying Data Analyst Jobs**: The highest-paying jobs for data analysts that allow remote work offer a wide range of salaries.
+2. **Skills for Top-Paying Jobs**: High-paying data analyst jobs require advanced proficiency in SQL, making it a necessary skill for me to improve.
+3. **Most In-Demand Skills**: SQL is also the most demanded skill in the data analyst job market, thus making it important for me.
+4. **Skills with Higher Salaries**: Specialized skills, such as SVN and Solidity, are associated with the highest average salaries, indicating a premium on niche expertise. These are skills to learn after I am an experienced data analyst.
+5. **Optimal Skills for Job Market Value**: SQL leads in demand and offers for a high average salary, positioning it as one of the most optimal skills for data analysts to learn to maximize their market value.
 
+## Closing Thoughts
 
+Working on this project allowed me to learn a lot about SQL while also showcasing those skills to anyone viewing this README. It provided me with experience working with tables, CTE, and other notable SQL aspects that I didn't know a lot about beforehand. I was also able to answer the 5 questions I had at the start. My main takeaway from this project is that I need to continue to develop my SQL skills in order to be a successful data analyst. I enjoyed it a lot and I look forward to working more with SQL in the future.
 
 
 
