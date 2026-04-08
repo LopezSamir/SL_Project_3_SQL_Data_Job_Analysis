@@ -1,7 +1,3 @@
-TODO: Project currently being worked on. Queries are done, but README still needs to be done
-to Explain the results and answer the following questions
-
-
 # Introduction
 
 This project uses SQL to analyze the data job market. It focuses primarily on remote Data Analyst roles. From looking at top-paying jobs, in-demand skills, and the demand of said skills; this project will allow me to get a better understanding of the market I am attempting to get into.
