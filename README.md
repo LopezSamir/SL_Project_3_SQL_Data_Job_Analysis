@@ -147,14 +147,79 @@ First I selected that I wanted the skills. I also want the count(skills_job_dim.
 * **SQL** and **Excel** remain fundamental, emphasizing the need for strong foundational skills in data processing and spreadsheet manipulation.
 * **Programming** and **Visualization Tools** like **Python**, **Tableau**, and **Power BI** are essential, pointing towards the increasing importance of technical skills in data storytelling and decision support.
 
+## 4: Top Skills Based on Salary
 
+In order to find which skills come with the highest salaries, I created the following query:
 
+```sql
 
+SELECT
+    skills,
+    ROUND(AVG(salary_year_avg), 0) AS avg_salary
+FROM job_postings_fact
+INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+WHERE
+    job_title_short = 'Data Analyst'
+    AND salary_year_avg IS NOT NULL
+    AND job_work_from_home = TRUE
+GROUP BY
+    skills
+ORDER BY
+    avg_salary DESC
+LIMIT 25
 
+```
 
+### Quick Explanation of SQL Query
 
+First I selected that I wanted the skills. Then I also wanted the rounded average of the salary_year_avg labled as avg_salary. The FROM, INNER JOIN, WHERE, and GROUP BY parts were almost the exact same as the last query. I just added that I only wanted the salary_year_avg where the value is not NULL, meaning no salary given. Lastly, I ordered it by the avg_salary in descending order and limited the results to the top 25
 
+### Breakdown of the top paying skills for data analysts:
 
+* **High Demand for Big Data & ML Skills**: Top salaries are commanded by analysts skilled in big data technologies (PySpark, Couchbase), machine learning tools (DataRobot, Jupyter), and Python libraries (Pandas, NumPy), reflecting the industry's high valuation of data processing and predictive modeling capabilities.
+* **Software Development & Deployment Proficiency:** Knowledge in development and deployment tools (GitLab, Kubernetes, Airflow) indicates a lucrative crossover between data analysis and engineering, with a premium on skills that facilitate automation and efficient data pipeline management.
+* **Cloud Computing Expertise:** Familiarity with cloud and data engineering tools (Elasticsearch, Databricks, GCP) underscores the growing importance of cloud-based analytics environments, suggesting that cloud proficiency significantly boosts earning potential in data analytics.
+
+## 5: Most Optimal Skills to Learn
+
+In order to find the most optimal skills to learn, I created the following query:
+
+```sql
+
+SELECT
+    skills_dim.skill_id,
+    skills_dim.skills,
+    COUNT(skills_job_dim.job_id) AS demand_count,
+    ROUND(AVG(job_postings_fact.salary_year_avg), 0) AS avg_salary
+FROM job_postings_fact
+INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+Where
+    job_title_short = 'Data Analyst'
+    AND salary_year_avg IS NOT NULL
+    AND job_work_from_home = TRUE
+GROUP BY
+    skills_dim.skill_id
+HAVING
+    COUNT(skills_job_dim.job_id) > 10
+ORDER BY
+    avg_salary DESC,
+    demand_count DESC
+LIMIT 25
+
+```
+
+### Quick Explanation of SQL Query
+
+First I selected that I wanted the skill_id and skills columns from the skills_dim table. I also wanted the demand_count and avg_salary from the previous queries. The FROM, INNER JOIN, and WHERE sections were kept the same as last query. This time it is being grouped by the skill_id column from the skills_dim table. The HAVING section makes it so our results when run only gives us back skills that have a count of at least 10. Then, the results are grouped by avg_salary in descending order followed by demand_count in descending order. Lastly, the results are limited to just the top 25.
+
+### Breakdown of the most optimal skills for data analysts:
+
+* **High-Demand Programming Languages**: Python and R stand out for their high demand, with demand counts of 236 and 148 respectively. Despite their high demand, their average salaries are around $101,397 for Python and $100,499 for R, indicating that proficiency in these languages is highly valued but also widely available.
+* **Cloud Tools and Technologies**: Skills in specialized technologies such as Snowflake, Azure, AWS, and BigQuery show significant demand with relatively high average salaries, pointing towards the growing importance of cloud platforms and big data technologies in data analysis.
+* **Business Intelligence and Visualization Tools**: Tableau and Looker, with demand counts of 230 and 49 respectively, and average salaries around $99,288 and $103,795, highlight the critical role of data visualization and business intelligence in deriving actionable insights from data.
+* **Database Technologies**: The demand for skills in traditional and NoSQL databases (Oracle, SQL Server, NoSQL) with average salaries ranging from $97,786 to $104,534, reflects the enduring need for data storage, retrieval, and management expertise.
 
 
 
