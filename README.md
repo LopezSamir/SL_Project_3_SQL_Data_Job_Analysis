@@ -30,14 +30,45 @@ more about what it takes to become one. As such, I created this project to serve
 
 # Analysis
 
-In order to answer the 5 questions that I began this project with, I created 5 queries on different files.
+The queries for this project each aim to answer one of the 5 questions I started with. Here is how I approached each question:
 
 ## 1. Top Paying Data Analyst Jobs
 
 In order to find the highest paying remote data analyst jobs, I created the following query:
 
+```sql
 
+SELECT
+    job_id,
+    job_title,
+    job_location,
+    job_schedule_type,
+    salary_year_avg,
+    job_posted_date,
+    name AS company_name
+FROM
+    job_postings_fact
+LEFT JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id
+WHERE
+    job_title_short = 'Data Analyst' AND
+    job_location = 'Anywhere' AND
+    salary_year_avg IS NOT NULL
+ORDER BY
+    salary_year_avg DESC
+LIMIT 10 
 
+```
+
+### Quick Explanation of SQL Query
+
+The SELECT part is what I wanted to get FROM the job_postings_fact table in the data. Then I did a LEFT JOIN on the company_dim table using the company_id columns in the two tables. The WHERE part just filters what I want to see by making it only give me
+the data on Data Analyst roles that are remote and have a given salary. Lastly, the results are limited to the top 10 jobs shown in descending order.
+
+### Breakdown of the top data analyst jobs:
+
+* **Wide Salary Range**: Top 10 paying data analyst roles span from $184,000 to $650,000, indicating significant salary potential in the field.
+* **Diverse Employers**: Companies like SmartAsset, Meta, and AT&T are among those offering high salaries, showing a broad interest across different industries.
+* **Job Title Variety**: There's a high diversity in job titles, from Data Analyst to Director of Analytics, reflecting varied roles and specializations within data analytics.
 
 
 
